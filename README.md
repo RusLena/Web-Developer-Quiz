@@ -30,3 +30,4 @@ The URL of the GitHub repository
 https://github.com/RusLena/Web-Developer-Quiz.git
 
 The URL of the functional, deployed application
+https://ruslena.github.io/Web-Developer-Quiz/
