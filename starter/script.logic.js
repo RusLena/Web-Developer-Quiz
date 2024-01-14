@@ -41,7 +41,8 @@ function displayQuestion() {
   var currentQuestion = quizQuestions[currentQuestionIndex];
 
   // Update the question title
-  document.getElementById("question-title").textContent = currentQuestion.question;
+  document.getElementById("question-title").textContent =
+    currentQuestion.question;
 
   // Clear previous choices
   var choicesContainer = document.getElementById("choices");
