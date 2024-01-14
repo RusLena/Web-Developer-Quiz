@@ -1,5 +1,5 @@
 // logic.js
-// Add Variables with references to HTML elements
+/// Getting references to HTML elements
 var startButton = document.getElementById("start");
 var timerSpan = document.getElementById("time");
 var scoreDisplay = document.getElementById("final-score");
@@ -34,6 +34,7 @@ function startQuiz() {
   // Display the first question
   displayQuestion();
 }
+
 // Function to display a question
 function displayQuestion() {
   // Get the current question
@@ -62,14 +63,71 @@ function displayQuestion() {
   document.getElementById("start-screen").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
 }
+
+// Function to handle the user's answer
+function handleAnswer(answerIndex) {
+  // Get the current question
+  var currentQuestion = quizQuestions[currentQuestionIndex];
+
+  // Check if the answer is correct
+  if (answerIndex === currentQuestion.correctAnswer) {
+    correctAnswers++;
+  } else {
+    // If incorrect, subtract time (10 seconds penalty)
+    seconds -= 10;
+    if (seconds < 0) {
+      seconds = 0;
+    }
+  }
+
+  // Move to the next question
+  currentQuestionIndex++;
+
+  // Check if all questions are answered
+  if (currentQuestionIndex === quizQuestions.length) {
+    endQuiz();
+  } else {
+    // Display the next question
+    displayQuestion();
+  }
+}
+
 // Function to end the quiz
 function endQuiz() {
-  // Display final score
-  // User enters initials
-  // Save high score to local storage
-  // Redirect to high scores page
-}
-// Add event listeners for answer buttons
+  // Stop the timer
+  clearInterval(timerInterval);
 
-// Add event listener for the "Start Quiz" button
+  // Hide the questions and show the end screen
+  document.getElementById("questions").classList.add("hide");
+  document.getElementById("end-screen").classList.remove("hide");
+
+  // Display the final score
+  scoreDisplay.textContent = correctAnswers;
+}
+
+// Event listener for the "Submit" button
+submitButton.addEventListener("click", function () {
+  // Get user's initials
+  var initials = initialsInput.value.trim();
+
+  // Check if initials are provided
+  if (initials !== "") {
+    // Create a score object
+    var scoreObject = {
+      initials: initials,
+      score: correctAnswers,
+    };
+
+    // Add the score to the highScores array
+    highScores.push(scoreObject);
+
+    // Save highScores to local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+    // Redirect to the high scores page
+    window.location.href = "highscores.html";
+  }
+});
+
+// Event listener for the "Start Quiz" button
 startButton.addEventListener("click", startQuiz);
