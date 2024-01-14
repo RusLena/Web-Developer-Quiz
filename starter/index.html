@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
 
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
+    <!-- Navigation to High Scores page -->
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
-
+    <!-- Timer display -->
     <div class="timer">Time: <span id="time">0</span></div>
-
+    <!-- Main content wrapper -->
     <div class="wrapper">
+      <!-- Start screen -->
       <div id="start-screen" class="start">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -24,12 +26,12 @@
         </p>
         <button id="start">Start Quiz</button>
       </div>
-
+      <!-- Question display -->
       <div id="questions" class="hide">
         <h2 id="question-title"></h2>
         <div id="choices" class="choices"></div>
       </div>
-
+      <!-- End screen -->
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
@@ -38,11 +40,11 @@
           <button id="submit">Submit</button>
         </p>
       </div>
-
+      <!-- Feedback display -->
       <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <script src="assets/script.questions.js"></script>
-    <script src="assets/script.logic.js"></script>
+    <script src="script.questions.js"></script>
+    <script src="script.logic.js"></script>
   </body>
 </html>
