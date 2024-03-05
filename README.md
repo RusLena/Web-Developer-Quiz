@@ -13,8 +13,6 @@ Learning experience
 
 This is the first time I've worked with multiple JavaScript and HTML files. This modular structure has added an extra layer of complexity and the need to have an understanding of the relationship between files.
 
-When writing this project, I had to look for similar logic and syntax in other projects and try to apply it myself. Adding new variables and functions sometimes led to unexpected bugs. It took hours of debugging to find and fix them.
-
 Application functionality
 
 The final application is very similar to the mock-up functionality provided in the challenge instructions. However, there is no right/wrong answer function in my code. This provides an opportunity for future improvement and learning.
